@@ -33,9 +33,9 @@ read -r option
 if [[ -z $option ]];
 then
 	clear
-	printf "\e[031m Please choose a option!\n%0" "$kill_color"
+	printf "\e[031m Please choose a option!\n%s" "$kill_color"
 else
-case $option in #Make Case list
+  case $option in
 	1)
 	yt-dlp  $basecommand -f "bv*[ext=mp4]+ba[ext=m4a]/ b[ext=mp4]/ bv*+ba/ b" --embed-thumbnail --embed-chapters "$@"
 	;;
