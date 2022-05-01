@@ -26,7 +26,7 @@ echo -e "\e[032m" "╠═▶ 0. Exit Termux-YTD"
 echo -e "\e[032m" "╚═:➤  $kill_color"
 
 # Always embed metadata, have only the title als filename and put the video link as composer or subtitle in the file metadata, as almost every file format has one of these
-basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_composer>.+) --parse-metadata "webpage_url:(?s)(?P<meta_subtitle>.+)" -o /data/data/com.termux/files/home/storage/shared/Download/%(title)s.%(ext)s '
+basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_composer>.+) --parse-metadata webpage_url:(?s)(?P<meta_subtitle>.+) -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s '
 
 read option
 
