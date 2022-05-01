@@ -26,9 +26,9 @@ echo -e "\e[032m" "╠═▶ 0. Exit Termux-YTD"
 echo -e "\e[032m" "╚═:➤  $kill_color"
 
 # Always embed metadata, have only the title als filename and put the video link as composer or subtitle in the file metadata, as almost every file format has one of these
-basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_composer>.+) --parse-metadata webpage_url:(?s)(?P<meta_subtitle>.+) --parse-metadata description:(?P<meta_comment>.+) -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s '
+basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_composer>.+) --parse-metadata webpage_url:(?s)(?P<meta_subtitle>.+) -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s '
 
-read option
+read -r option
 
 if [[ -z $option ]];
 then
@@ -40,37 +40,37 @@ case $option in #Make Case list
 	yt-dlp  $basecommand -f "bv*[ext=mp4]+ba[ext=m4a]/ b[ext=mp4]/ bv*+ba/ b" --embed-thumbnail --embed-chapters "$1"
 	;;
 	2)
-	yt-dlp "$basecommand" -f ba[ext=mp3]/ba -x --audio-format mp3 --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$1"
+	yt-dlp $basecommand -f "ba[ext=mp3]/ ba" -x --audio-format mp3 --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$1"
 	;;
 	3)
-	yt-dlp "$basecommand" "$1"
+	yt-dlp $basecommand "$1"
 	;;
   4)
-  yt-dlp "$basecommand" -f ba[ext=mp3]/ba -x --audio-format mp3 "$1"
+  yt-dlp $basecommand -f "ba[ext=mp3]/ ba" -x --audio-format mp3 "$1"
 	;;
 	5)
 	height='2160'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
 	6)
 	height='1440'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
 	7)
 	height='1080'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
 	8)
 	height='720'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
 	9)
 	height='480'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
   10)
 	height='360'
-	yt-dlp "$basecommand" -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
+	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$1"
 	;;
   0)
   ;;
