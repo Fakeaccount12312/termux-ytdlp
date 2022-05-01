@@ -4,10 +4,10 @@ clear
 kill_color=$'\e[0m'
 command -v yt-dlp &>/dev/null || printf "\e[031m Please install yt-dlp manualy or run the the install.sh script again.\n$kill_color"
 
-echo -e "\e[031m" "           ▄▀▄     ▄▀▄           "
-echo -e "\e[031m" "          ▄█░░▀▀▀▀▀░░█▄          "
-echo -e "\e[031m" "      ▄▄  █░░░░░░░░░░░█  ▄▄      "
-echo -e "\e[031m" "     █▄▄█ █░░█░░┬░░█░░█ █▄▄█     "
+echo -e "\e[38;5;94m" "           ▄▀▄     ▄▀▄           "
+echo -e "\e[38;5;94m" "          ▄█░░▀▀▀▀▀░░█▄          "
+echo -e "\e[38;5;94m" "      ▄▄  █░░░░░░░░░░░█  ▄▄      "
+echo -e "\e[38;5;94m" "     █▄▄█ █░░█░░┬░░█░░█ █▄▄█     "
 echo -e "\e[036m" "╔═══════════════════════════════╗"
 echo -e "\e[036m" "║ Youtube-Downloader for termux ║"
 echo -e "\e[036m" "╠═══════════════════════════════╝"
