@@ -22,6 +22,7 @@ echo -e "\e[032m" "╠═▶ 7. Video 1080p"
 echo -e "\e[032m" "╠═▶ 8. Video 720p"
 echo -e "\e[032m" "╠═▶ 9. Video 480p"
 echo -e "\e[032m" "╠═▶ 10.Video 360p"
+echo -e "\e[032m" "╠═▶ 11.Video smallest"
 echo -e "\e[032m" "╠═▶ 0. Exit Termux-YTD"
 echo -e "\e[032m" "╚═:➤  $kill_color"
 
@@ -71,10 +72,12 @@ case $option in
 	height='360'
 	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
+  10)
+	yt-dlp $basecommand -f best -S +size,+br,+res,+fps "$@"
+	;;
   0)
   ;;
 esac
 
 # wait for keypress
 read -r -n 1 -s
-
