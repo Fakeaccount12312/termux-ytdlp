@@ -38,6 +38,7 @@ else
 case $option in #Make Case list
 	1)
 	yt-dlp  $basecommand -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b" $1
+	pause
 	;;
 	2)
 	yt-dlp $basecommand "-f 140"  $1
