@@ -4,46 +4,43 @@ clear
 kill_color=$'\e[0m'
 command -v yt-dlp &>/dev/null || printf "\e[031m Please install yt-dlp manualy or run the the install.sh script again.\n$kill_color"
 
-#uncomment me if you wish :)
-#[[ -f ~/bin ]] || printf "\e[031m Please Run the the install.sh script.\n$kill_color"
-
-
-echo -e "\e[031m" "          ▄▀▄     ▄▀▄"
-echo -e "\e[031m" "         ▄█░░▀▀▀▀▀░░█▄"
-echo -e "\e[031m" "     ▄▄  █░░░░░░░░░░░█  ▄▄"
-echo -e "\e[031m" "    █▄▄█ █░░█░░┬░░█░░█ █▄▄█"
-echo -e "\e[036m" "╔════════════════════════════════════════╗"                                                                          
-echo -e "\e[032m" "║ ♚ Project Name : 🆃🅴🆁🅼🆄🆇-🆈🆃🅳™           ║"
-echo -e "\e[032m" "║ ♚ Author : KhanSaad1275                ║"
-echo -e "\e[032m" "║ ♚ Github : g̲i̲t̲h̲u̲b̲.̲c̲o̲m̲/̲k̲h̲a̲n̲s̲a̲a̲d̲1̲2̲7̲5̲/̲    ║"
-echo -e "\e[032m" "║ ♚ Website : www.LearnTermux.tech       ║"
-echo -e "\e[036m" "╠════════════════════════════════════════╝"
-echo -e "\e[036m" "╠═▶ [𝗦𝗲𝗹𝗲𝗰𝘁 𝗔 𝗙𝗼𝗿𝗺𝗮𝘁]  ➳"
+echo -e "\e[031m" "           ▄▀▄     ▄▀▄           "
+echo -e "\e[031m" "          ▄█░░▀▀▀▀▀░░█▄          "
+echo -e "\e[031m" "      ▄▄  █░░░░░░░░░░░█  ▄▄      "
+echo -e "\e[031m" "     █▄▄█ █░░█░░┬░░█░░█ █▄▄█     "
+echo -e "\e[036m" "╔═══════════════════════════════╗"
+echo -e "\e[032m" "║ Youtube-Downloader for termux ║"
+echo -e "\e[036m" "╠═══════════════════════════════╝"
+echo -e "\e[036m" "╠═▶ [𝗦𝗲𝗹𝗲𝗰𝘁 𝗔 𝗙𝗼𝗿𝗺𝗮𝘁]"
 echo -e "\e[032m" "╠═▶ 1. Video (Mp4)"
-echo -e "\e[032m" "╠═▶ 2. Music"
-echo -e "\e[032m" "╠═▶ 3. Video 360p"
-echo -e "\e[032m" "╠═▶ 4. Video 480p"
-echo -e "\e[032m" "╠═▶ 5. Video 720p"
-echo -e "\e[032m" "╠═▶ 6. Video 1080p"
-echo -e "\e[032m" "╠═▶ 7. Video 2160p"
-echo -e "\e[032m" "╠═▶ 8. Exit Termux-YTD" # Added
-command='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Download/%(title)s.%(ext)s -f'
+echo -e "\e[032m" "╠═▶ 2. Audio (Mp3)"
+echo -e "\e[032m" "╠═▶ 3. Video"
+echo -e "\e[032m" "╠═▶ 4. Audio"
+echo -e "\e[032m" "╠═▶ 5. Video 2160p"
+echo -e "\e[032m" "╠═▶ 6. Video 1440p"
+echo -e "\e[032m" "╠═▶ 7. Video 1080p"
+echo -e "\e[032m" "╠═▶ 8. Video 720p"
+echo -e "\e[032m" "╠═▶ 9. Video 480p"
+echo -e "\e[032m" "╠═▶ 10. Video 480p"
+echo -e "\e[032m" "╠═▶ 0. Exit Termux-YTD"
+echo -e "\e[032m" "╚═:➤  $kill_color"
 
-#Edit From Oak Atsume 
-printf "\e[032m ╚═:➤  $kill_color"
+# Always embed metadata, have only the title als filename and put the video link as composer or subtitle in the file metadata, as almost every file format has one of these
+basecommand=$'--embed-metadata --parse-metadata "webpage_url:(?s)(?P<meta_composer>.+)" --parse-metadata "webpage_url:(?s)(?P<meta_subtitle>.+)" -o /data/data/com.termux/files/home/storage/shared/Download/%(title)s.%(ext)s '
+
 read option
 
 if [[ -z $option ]];
 then
 	clear
-	printf "\e[031m Please choose a option!\n$kill_color"
+	printf "\e[031m Please choose a option!\n%0" "$kill_color"
 else
 case $option in #Make Case list
 	1)
-	yt-dlp "-f best[ext=mp4]/best" $1
+	yt-dlp  $basecommand -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b" $1
 	;;
 	2)
-	yt-dlp "-f 140"  $1
+	yt-dlp $basecommand "-f 140"  $1
 	;;
 	3)
 	yt-dlp "-f best[height<=360]" $1
@@ -61,23 +58,6 @@ case $option in #Make Case list
 	yt-dlp "-f best[height<=2160" $1
 	;;
 	8)
-	break
 	;;
 esac 
 fi
-
-
-#There's a cat on the code!!
-#          ▄▀▄     ▄▀▄
-#         ▄█░░▀▀▀▀▀░░█▄
-#     ▄▄  █░░░░░░░░░░░█  ▄▄
-#    █▄▄█ █░░█░░┬░░█░░█ █▄▄█
-
-#Oh hey there It's me Oak I have no idea how yt-dlp works but i came across this github and saw the messy code and gave it a better look hope it helps :D 
-
-#I wanted to mess a little with the Download code but didn't 
-
-#email: Kamilohulau@gmail.com
-#Date: Wed Dec  2 15:48:19 PST 2020#
-#Project name : Termux-YTD#
-#Github: https://github.com/khansaad1275/Termux-YTD#
