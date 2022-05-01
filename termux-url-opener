@@ -30,8 +30,7 @@ basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_compose
 
 read -r option
 while [[ $option = "" ]]; do
-  clear
-  printf "\e[031m Please choose a option!\n%s" "$kill_color"
+  printf "\r\e[031m Please choose a option!\n%s" "$kill_color"
   read -r option
 done
 
