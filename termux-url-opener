@@ -80,4 +80,6 @@ case $option in
 esac
 
 # wait for keypress
+echo
+echo Done. Press any key to exit
 read -r -n 1 -s
