@@ -1,6 +1,6 @@
 # termux-ytdlp
 
-Qick yt-dlp wrapper for termux
+Quick yt-dlp wrapper for termux
 
 ## Installation
 Clone the repo and execute install.sh
