@@ -46,7 +46,7 @@ case $option in #Make Case list
 	yt-dlp $basecommand "$1"
 	;;
   4)
-  yt-dlp $basecommand -f "ba[ext=mp3]/ ba" -x --audio-format mp3 "$1"
+  yt-dlp $basecommand -f "ba" "$1"
 	;;
 	5)
 	height='2160'
