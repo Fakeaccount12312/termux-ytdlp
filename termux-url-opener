@@ -29,13 +29,13 @@ echo -e "\e[032m" "╚═:➤  $kill_color"
 basecommand=$'--embed-metadata --parse-metadata webpage_url:(?s)(?P<meta_composer>.+) --parse-metadata webpage_url:(?s)(?P<meta_subtitle>.+) -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s '
 
 read -r option
+while [[ $option = "" ]]; do
+  clear
+  printf "\e[031m Please choose a option!\n%s" "$kill_color"
+  read -r option
+done
 
-if [[ -z $option ]];
-then
-	clear
-	printf "\e[031m Please choose a option!\n%s" "$kill_color"
-else
-  case $option in
+case $option in
 	1)
 	yt-dlp  $basecommand -f "bv*[ext=mp4]+ba[ext=m4a]/ b[ext=mp4]/ bv*+ba/ b" --embed-thumbnail --embed-chapters "$@"
 	;;
