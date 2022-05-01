@@ -72,7 +72,7 @@ case $option in
 	height='360'
 	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
-  10)
+  11)
 	yt-dlp $basecommand -f best -S +size,+br,+res,+fps "$@"
 	;;
   0)
