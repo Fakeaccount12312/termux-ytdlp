@@ -46,7 +46,7 @@ case $option in #Make Case list
 	yt-dlp $basecommand "$1"
 	;;
   4)
-  yt-dlp $basecommand -f "ba" "$1"
+  yt-dlp $basecommand -f ba[ext=m4a]/ba[ext=mp3]/ba --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$1"
 	;;
 	5)
 	height='2160'
