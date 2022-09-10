@@ -23,13 +23,10 @@ echo -e "\e[034m"  "Installing youtube-dlp\n"
 pip install youtube-dlp
 
 echo -e "\e[032m"  "Making the Youtube Directory to download the Vidoes\n"
-mkdir ~/storage/shared/Youtube
-
-echo -e "\e[036m"  "Creating youtube-dl folder for config\n"
-mkdir -p ~/.config/youtube-dl
+mkdir -p ~/storage/shared/Youtube
 
 echo -e "Creating bin folder\n"
-mkdir ~/bin
+mkdir -p ~/bin
 
 echo -e "Creating Termux-URL-Opener Script.\n"
 
