@@ -4,7 +4,7 @@ Quick yt-dlp wrapper for termux
 
 ![termux-ytdlp](https://user-images.githubusercontent.com/64163394/166140065-3a2b324a-55fb-46d8-bd41-2b66a14aed05.png)
 
-## Installation!
+## Installation
 
 Clone the repo and execute install.sh
 
