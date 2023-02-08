@@ -23,6 +23,7 @@ echo -e "\e[032m" "╠═▶ 8. Video 720p  (Mp4)"
 echo -e "\e[032m" "╠═▶ 9. Video 480p  (Mp4)"
 echo -e "\e[032m" "╠═▶ 10.Video 360p  (Mp4)"
 echo -e "\e[032m" "╠═▶ 11.Video smallest"
+echo -e "\e[032m" "╠═▶ 12.Video (3gp)"
 echo -e "\e[032m" "╠═▶ 0. Exit Termux-YTD"
 echo -e "\e[032m" "╚═:➤   $kill_color"
 
@@ -45,8 +46,8 @@ case $option in
 	3)
 	yt-dlp $basecommand "$@"
 	;;
-  4)
-  yt-dlp $basecommand -f ba[ext=m4a]/ba[ext=mp3]/ba --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$@"
+	4)
+	yt-dlp $basecommand -f ba[ext=m4a]/ba[ext=mp3]/ba --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$@"
 	;;
 	5)
 	height='2160'
@@ -68,15 +69,17 @@ case $option in
 	height='480'
 	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
-  10)
+	10)
 	height='360'
 	yt-dlp $basecommand -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
-  11)
+	11)
 	yt-dlp $basecommand -f best -S +size,+br,+res,+fps "$@"
 	;;
-  0)
-  ;;
+	12)
+	yt-dlp $basecommand -f "bv*[ext=3gp]" "$0"
+	0)
+	;;
 esac
 
 # wait for keypress
