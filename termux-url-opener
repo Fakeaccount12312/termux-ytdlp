@@ -41,7 +41,7 @@ done
 
 case $option in
 	1)
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4]+ba[ext=m4a]/ b[ext=mp4]/ bv*+ba/ b" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4]+ba[ext=mp4,m4a]/ b[ext=mp4]/ bv*+ba/ b" --embed-thumbnail --embed-chapters "$@"
 	;;
 	2)
 	yt-dlp $basecommand -o $audiopath -f "ba[ext=mp3]/ ba" -x --audio-format mp3 --embed-thumbnail --parse-metadata "%(playlist_autonumber|)s:(?P<meta_track>.+)" --parse-metadata "%(artist,creator,uploader)s:(?P<meta_album_artist>.+)" "$@"
@@ -54,27 +54,27 @@ case $option in
 	;;
 	5)
 	height='2160'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	6)
 	height='1440'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	7)
 	height='1080'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	8)
 	height='720'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	9)
 	height='480'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	10)
 	height='360'
-	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
+	yt-dlp $basecommand -o $videopath -f "bv*[ext=mp4][height<=$height]+ba[ext=mp4,m4a]/ b[ext=mp4][height<=$height]/ bv[height<=$height]*+ba/ b[height<=$height]" --embed-thumbnail --embed-chapters "$@"
 	;;
 	11)
 	yt-dlp $basecommand -o $videopath -f best -S +size,+br,+res,+fps "$@"
